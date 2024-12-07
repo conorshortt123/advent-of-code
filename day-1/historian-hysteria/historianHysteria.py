@@ -1,17 +1,3 @@
-# total = 0
-# with open("sample_input.txt", "r") as input:
-#     for line in input:
-#         linetotal = 0
-#         lists = line.split()
-#         list1 = sorted(list(lists[0]))
-#         list2 = sorted(list(lists[1]))
-
-#         for i in range(5):
-#             diff = abs(int(list1[i]) - int(list2[i]))
-#             linetotal += diff
-#         total += linetotal
-# print(total)
-
 lines = []
 
 with open("input.txt") as file:
