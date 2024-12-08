@@ -1,12 +1,11 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class historianHysteria {
     public static void main(String[] args) throws FileNotFoundException {
         System.out.println(partOne());
+        System.out.println(partTwo());
     }
 
     private static int partOne() throws FileNotFoundException {
@@ -29,5 +28,26 @@ public class historianHysteria {
         }
 
         return total;
+    }
+
+    private static int partTwo() throws FileNotFoundException {
+        File file = new File("input.txt");
+        Scanner scanner = new Scanner(file);
+        Map<Integer, Integer> rightListFrequencyMap = new HashMap<>(1000);
+        List<Integer> leftList = new ArrayList<>();
+        int similarityScore = 0;
+
+        while (scanner.hasNextLine()) {
+            String[] locationIds = scanner.nextLine().split(" {3}");
+            int right = Integer.parseInt(locationIds[1]);
+            rightListFrequencyMap.put(right, rightListFrequencyMap.getOrDefault(right, 0) + 1);
+            leftList.add(Integer.parseInt(locationIds[0]));
+        }
+
+        for(int i : leftList) {
+            similarityScore += i * rightListFrequencyMap.getOrDefault(i, 0);
+        }
+
+        return similarityScore;
     }
 }
