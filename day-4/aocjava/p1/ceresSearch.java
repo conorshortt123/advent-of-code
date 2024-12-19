@@ -1,4 +1,4 @@
-package aocjava;
+package aocjava.p1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
