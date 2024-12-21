@@ -63,7 +63,7 @@ public class printQueue {
         return correctOrderUpdates;
     }
 
-    private static int correctlyOrderIncorrectlyOrderedUpdatesAndAdd(List<List<Integer>> incorrectOrderUpdates, Map<Integer, List<Integer>> pageOrderingRules) {
+    private static void correctlyOrderIncorrectlyOrderedUpdatesAndAdd(List<List<Integer>> incorrectOrderUpdates, Map<Integer, List<Integer>> pageOrderingRules) {
         List<List<Integer>> fixedOrderUpdates = new ArrayList<>();
         for (List<Integer> updates : incorrectOrderUpdates) {
             for (int i = 0; i < updates.size(); i++) {
@@ -78,7 +78,7 @@ public class printQueue {
             }
             fixedOrderUpdates.add(new ArrayList<>(updates)); // Add the fixed updates to the list
         }
-        return calculateMiddleUpdateTotal(fixedOrderUpdates);
+        System.out.println("Fixed order of incorrectly ordered: " + calculateMiddleUpdateTotal(fixedOrderUpdates));
     }
 
     private static int calculateMiddleUpdateTotal(List<List<Integer>> correctOrderUpdates) {
